@@ -1,0 +1,38 @@
+<div class="h-14 container flex items-center w-full px-3">
+    <a routerLink="/">Inicio</a>
+  </div>
+  <div class=" flex h-full w-full px-2">
+    <div class="flex flex-col w-full ">
+      <span class=" border-b-2">Categorías del producto</span>
+      <div class="flex flex-col justify-end items-end pt-5">
+        <ul class="rounded-lg border-2 border-slate-300 w-full">
+          <li
+            class="border-b border-slate-300 p-2 cursor-pointer"
+            *ngFor="let item of categories()"
+            routerLinkActive="actived"
+            [routerLink]="['/categories', item]"
+          >
+             {{ item | titlecase }} 
+          </li>
+        </ul>
+      </div>
+      <span class=" border-b-2 mt-10">Filtrar por Precio</span>
+  
+      <input type="range" name="name" id="" step="1" class="mt-5" [min]="0" [max]="currentMax()" [value]="50" [className]="' mt-5'" (input)="CurrenValue(txtInput.value)" #txtInput/>
+  
+        <span class="flex gap-2 text-slate-400 font-bold">
+          Precio:
+          <p>
+            {{ currentMin() | currency : "S/. " }} -
+            {{ currentMax() | currency : "S/. " }}
+  
+          </p>
+        </span>
+  
+        <span class="flex justify-center mt-5 w-full">
+          <button class="py-1 px-5 rounded-sm text-white bg-primary font-semibold" (click)="FilterPrice(txtInput.value)">Filtrar</button>
+        </span>
+  
+    </div>
+    
+  </div>

@@ -1,0 +1,24 @@
+<section *ngIf="products; else message" class="w-full flex justify-center ">
+    <div class="container grid grid-cols-2">
+        <div class="flex justify-end">
+            aca van las imagenes
+        </div>
+        <div class="flex flex-col py-5 bg-slate-200">
+            <h1 class="text-xl font-bold text-primary">Titulo </h1>
+            <span class="text-sm text-slate-500">categoria</span>
+            <nz-rate [ngModel] ="2.5" nzAllowHalf nzDisabled></nz-rate>
+
+
+            <!-- <nz-button nzType="primary" class="mt-2">Agregar al carrito</nz-button> -->
+        </div>
+
+    </div>
+
+</section>
+
+<ng-template #message>
+    <p class="text-2xl font-bold text-center mt-32 flex flex-col gap-3">
+        <i class="pi pi-cart-plus text-6xl"></i>
+       <span> No se Encontro el producto con ese id. </span>
+    </p>
+</ng-template>

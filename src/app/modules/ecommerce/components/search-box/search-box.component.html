@@ -1,0 +1,29 @@
+<div class="flex h-10">
+    <span
+    [ngStyle]="{ 'border': newBorder}"
+      class="flex items-center gap-1 rounded-l-[8rem] border-[2px]  w-full bg-white"
+    >
+      <input
+        type="text"
+        placeholder="Buscar.."
+        class="w-[60%] rounded-[8rem] focus:outline-none px-5 m-2"
+        [(ngModel)]="searchValue"
+        (keyup.enter)="searchProduct()"
+      />
+      <categories/>
+    
+      
+    </span>
+    <button
+        (click)="searchProduct()"
+        type="button"
+        [ngStyle]="{ background: backgroundValue }"
+        class="w-[10%] h-full rounded-r-3xl border-none"
+      >
+        <i
+          class="pi pi-search text-2xl w-10 color"
+          [ngStyle]="{ color: colorValue }"
+        ></i>
+      </button>
+
+</div>

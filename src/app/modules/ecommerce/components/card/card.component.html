@@ -1,0 +1,39 @@
+<section class="flex justify-center flex-wrap gap-2 py-2">
+  <ng-container class="container flex flex-col">
+    <div  *ngFor="let product of products" class="card-producto rounded-md shadow-xl">
+        <h1>{{product.title | titlecase }} </h1>
+        <p>{{product.category | titlecase }} </p>
+        <div class="pic-producto my-3" [routerLink]="['/product', product.id]">
+            <img [src]="product.images[0]"
+            [alt]="product.title"
+            height="200"
+            width="300">
+        </div>
+    
+            
+    
+        <div class="info-producto">
+            <div class="price-producto">{{product.price | currency:'S/. '}}</div>
+            <a (click)="addCart(product)" class="button-producto">Add to Cart</a>
+        </div>
+    </div>
+    <nz-pagination
+    class="container py-10 lg:px-20"
+    [(nzPageIndex)]="current"
+    [nzTotal]="total"
+    [nzSize]="'default'"
+    [nzShowTotal]="totalTemplate"
+    nzShowQuickJumper
+    nzShowSizeChanger
+    [nzPageSize]="pageSize"
+    [nzResponsive]="true"
+    (nzPageIndexChange)="onPageIndexChange($event)"
+    (nzPageSizeChange)="onPageSizeChange($event)"
+  ></nz-pagination>
+  <ng-template #totalTemplate let-total>Total {{ total }} Productos</ng-template>
+    
+    
+    
+  </ng-container>
+
+</section>

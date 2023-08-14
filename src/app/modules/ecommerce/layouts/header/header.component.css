@@ -1,0 +1,8 @@
+.item::before{
+    content: '|';
+    display: inline-block;
+    margin: 0 0.5rem;
+    color: #ddd;
+    font-family: 'Inter';
+    }
+    

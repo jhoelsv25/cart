@@ -1,0 +1,12 @@
+<nz-select
+  class="w-[200px] h-full flex items-center"
+  nzShowSearch
+  nzAllowClear
+  nzBorderless="true"
+  nzPlaceHolder="Todas las Categorias"
+  [(ngModel)]="selectedCategory"
+  (ngModelChange)="categValue($event)"
+>
+  <nz-option *ngFor="let category of categories()" [nzLabel]="category" [nzValue]="category"></nz-option>
+  
+</nz-select>

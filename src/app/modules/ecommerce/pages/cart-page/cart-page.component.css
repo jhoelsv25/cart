@@ -1,0 +1,10 @@
+strong, .strong{
+    background-color: #009999;
+}
+img{
+    width: 100%;
+    height: 70px !important;
+}
+i{
+    color: #009999;
+}

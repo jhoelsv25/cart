@@ -1,0 +1,58 @@
+.card-producto{
+    width: 350px;
+    background: #fff;
+    padding: 40px 20px ;
+    text-transform: uppercase;
+
+
+}
+img{
+    width: 100%;
+    height: 200px;
+}
+.card-producto h1{
+    font-size: 22px;
+    margin-bottom: 4px;
+    color: #404040;
+}
+
+.card-producto p{
+    font-size: 13px;
+    color: #bbb;
+}
+
+.pic-producto{
+    width: 100%;
+    height: 200px;
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+    transition: .6s ease-in;
+    
+}
+
+
+.info-producto{
+    display: flex;
+    align-items: center;
+}
+
+.price-producto{
+    color: #74b9ff;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.button-producto{
+    margin-left: auto;
+    color: #74b9ff;
+    text-decoration: none;
+    border: 2px solid;
+    padding: 8px 24px;
+    border-radius: 20px;
+    transition: .4s ease-in; 
+}
+
+.button-producto:hover{
+    transform: scale(1.06);
+}

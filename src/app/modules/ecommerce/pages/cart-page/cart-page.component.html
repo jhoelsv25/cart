@@ -1,0 +1,79 @@
+<h1 class="text-3xl font-bold text-center w-full mt-5">Carrito</h1>
+
+<div class="w-full flex flex-col justify-center items-center mt-8" *ngIf="orders().length>0; else message">
+  <table class="table w-[70%]">
+    <thead class="border-b-2">
+      <tr class="flex gap-3 text-slate-400">
+        <th scope="col" class="w-1/6"></th>
+        <th scope="col" class="w-1/6">img</th>
+        <th scope="col" class="w-2/6">Producto</th>
+        <th scope="col" class="w-1/6">Precio</th>
+        <th scope="col" class="w-1/6">Cantidad</th>
+        <th scope="col" class="w-1/6">Sub Total</th>
+      </tr>
+    </thead>
+    <tbody class="border-b-2">
+      <tr class="flex gap-5 text-center h-24 items-center" *ngFor="let order of orders()">
+        <td class="w-1/6">
+          <button>
+            <i class="pi pi-trash hover:text-red-700"></i>
+          </button>
+        </td>
+        <td class="w-1/6">
+          <img [src]="order.images[0]" alt="produc" height="100" width="100" />
+        </td>
+        <td class="w-2/6">{{ order.title}}  </td>
+        <td class="w-1/6">
+          <strong class="rounded-md p-2 text-white"> {{ order.price | currency:'S/. '}} </strong>
+        </td>
+        <td class="w-1/6">
+          <input
+            class="p-1 rounded-2xl w-16 border-gray-300 border-2"
+            type="number"
+            name="quanty"
+            id=""
+            value="1"
+            #txtInputValue
+            (input)="valueInput(txtInputValue.value, order.price)"
+          />
+        </td>
+        <td class="w-1/6">
+          <strong class="rounded-md p-2 text-white"> {{ order.price | currency:'S/. '}} </strong>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="w-[70%] mt-10">
+    <span class="w-full flex gap-2 justify-end">
+        <button class="rounded-3xl bg-gray-100 p-3 font-semibold">Actualizar cantidad</button>
+        <button class="rounded-3xl strong p-3 font-bold">Finalizar compra</button>
+    </span>
+    
+  </div>
+
+  <div class="w-[70%] mt-28 mb-10">
+    <span class="w-full flex gap-2 justify-end ">
+       <div class="w-80 flex gap-2 flex-col">
+        <p class="font-bold text-xl">Total del carrito</p>
+        <hr>
+        <span class="flex justify-between">
+            <p>SubTotal</p> <strong class="rounded-lg px-2 py-1 text-white">{{ subTotal() | currency:'S/. '}}</strong>
+        </span>
+        <hr >
+        <span class="flex justify-between">
+            <p>Total</p> <strong class="rounded-lg px-2 py-1 text-white">{{subTotal() | currency:'S/. '}}</strong>
+        </span>
+       </div>
+    </span>
+    
+  </div>
+</div>
+
+<ng-template #message>
+    <p class="text-2xl font-bold text-center mt-32 flex flex-col gap-3">
+        <i class="pi pi-cart-plus text-6xl"></i>
+       <span> No tienes compras por pagar elige un producto por favor</span>
+    </p>
+</ng-template>
+

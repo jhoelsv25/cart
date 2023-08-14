@@ -1,0 +1,12 @@
+<section *ngIf="products.length>0; else message">
+    <app-card [products]="products" [total]="totalProduct"></app-card>
+
+</section>
+
+
+<ng-template #message>
+    <p class="text-2xl font-bold text-center mt-32 flex flex-col gap-3">
+        <i class="pi pi-cart-plus text-6xl"></i>
+       <span> No se encontraron productos para esta categoria <h1 class="text-xl text-slate-400">Prueba con otras categorias</h1></span>
+    </p>
+</ng-template>

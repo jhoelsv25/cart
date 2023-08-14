@@ -1,0 +1,35 @@
+<div class="flex gap-3 items-center ">
+  <i class="pi pi-user cursor-pointer"></i>
+  <nz-badge  [nzCount]="cantid()" >
+    <i
+      nz-dropdown
+      [nzDropdownMenu]="menu"
+      (click)="cartView()"
+      class="pi pi-cart-plus cursor-pointer cart"
+    ></i>
+
+  </nz-badge>
+  <span
+    class="bg-primary rounded-md px-2 py-1 text-white font-bold cursor-pointer"
+    >{{ totalPrice() | currency : "S/. " }}</span
+  >
+</div>
+<nz-dropdown-menu #menu="nzDropdownMenu" >
+  <div
+    class="w-full bg-white border border-gray-300 p-4 rounded-md shadow-lg"
+  >
+
+      <span class="w-full flex gap-2 justify-center">
+        <button
+          (click)="irCarrito()"
+          class="rounded-3xl bg-gray-100 p-3 font-semibold text-base"
+        >
+          Ver carrito
+        </button>
+        <button class="rounded-3xl bg-primary strong p-3 font-bold text-base">
+          Finalizar compra
+        </button>
+      </span>
+
+  </div>
+</nz-dropdown-menu>

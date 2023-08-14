@@ -1,0 +1,32 @@
+<section>
+  <app-header></app-header>
+
+  <div class="sticky top-0 z-50 h-36 flex items-center justify-around ">
+    <div class="logo w-[30%] grid place-content-center">
+      <img src="assets/img/logo-j.png" alt="logo" width="240" />
+    </div>
+    <div class="search w-[40%]">
+      <search-box></search-box>
+    </div>
+    <div class="item w-[30%] flex gap-5 justify-center text-xl">
+      <controls></controls>
+    </div>
+  </div>
+  <div class="h-12 bg-primary flex col-span-2 items-centers ">
+    <div class="flex justify-end px-5 gap-3 items-center h-full">
+      <categories />
+
+      <a
+        routerLink="/product/"
+        class="h-full font-semibold text-base flex items-center px-3 border-l border-r border-gray-400"
+      >
+        Productos
+      </a>
+    </div>
+    <div class="flex justify-end px-5 gap-3 items-center h-full">
+      <app-items></app-items>
+    </div>
+  </div>
+</section>
+
+<router-outlet></router-outlet>

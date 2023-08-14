@@ -1,0 +1,27 @@
+<span
+  class="flex gap-1 rounded-[8rem] border-[2px] border-[#009999] w-full bg-white"
+>
+  <input
+    type="text"
+    placeholder="Buscar.."
+    class="w-[60%] rounded-[8rem] focus:outline-none px-5 m-2"
+    #inputSearch
+    (keyup.enter)="searchProduct(inputSearch.value)"
+  />
+  <select name="select" class="w-[30%] focus:outline-none" (change)="categValue($event)">
+    <option value="value1" selected>Todas las categorias</option>
+    <option [value]="item" *ngFor="let item of category()" >{{item}} </option>
+
+  </select>
+  <button
+    (click)="searchProduct(inputSearch.value)"
+    type="button"
+    [ngStyle]="{background: backgroundValue}"
+    class="w-[10%] rounded-r-3xl border-none "
+  >
+    <i
+      class="pi pi-search text-2xl w-10 color"
+      [ngStyle]="{ color: colorValue }"
+    ></i>
+  </button>
+</span>
