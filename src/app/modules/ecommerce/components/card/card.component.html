@@ -1,8 +1,9 @@
 <section class="flex justify-center flex-wrap gap-2 py-2">
   <ng-container class="container flex flex-col">
-    <div  *ngFor="let product of products" class="card-producto rounded-md shadow-xl">
+    <nz-ribbon  *ngFor="let product of products" [nzText]="product.discountPercentage+ ' % ' + 'En descuentos'" nzColor="volcano">
+    <div   class="card-producto rounded-md shadow-xl">
         <h1>{{product.title | titlecase }} </h1>
-        <p>{{product.category | titlecase }} </p>
+        <p>{{product.brand | titlecase }} </p>
         <div class="pic-producto my-3" [routerLink]="['/product', product.id]">
             <img [src]="product.images[0]"
             [alt]="product.title"
@@ -13,10 +14,17 @@
             
     
         <div class="info-producto">
-            <div class="price-producto">{{product.price | currency:'S/. '}}</div>
+            <div class=" flex flex-col">
+
+              <h5 class="text-red-500 text-sm line-through">{{product.price | currency:'S/. '}}</h5>
+
+              <label class="text-primary font-semibold text-lg">{{(product.price - ( product.price * product.discountPercentage)/100) | currency:'S/. '}}</label>
+
+            </div>
             <a (click)="addCart(product)" class="button-producto">Add to Cart</a>
         </div>
-    </div>
+      </div>
+    </nz-ribbon>
     <nz-pagination
     class="container py-10 lg:px-20"
     [(nzPageIndex)]="current"
@@ -30,7 +38,7 @@
     (nzPageIndexChange)="onPageIndexChange($event)"
     (nzPageSizeChange)="onPageSizeChange($event)"
   ></nz-pagination>
-  <ng-template #totalTemplate let-total>Total {{ total }} Productos</ng-template>
+  <ng-template #totalTemplate let-total>Total {{ total}} Productos</ng-template>
     
     
     

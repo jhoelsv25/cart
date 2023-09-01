@@ -14,7 +14,7 @@ export class ProductService {
 
   public  categories= signal<string[]>([]);
   public products= computed(()=>this._products());
-  public nameCategory= signal<string>('name');
+  public nameCategory= signal<string>('');
   public countProduct = signal<number>(0);
   
 

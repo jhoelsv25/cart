@@ -1,3 +1,7 @@
 .actived{
     border-left: 5px solid #009999; 
 }
+
+input{
+    accent-color: #009999;
+}

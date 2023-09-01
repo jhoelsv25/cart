@@ -4,13 +4,14 @@ import { NzRateModule } from 'ng-zorro-antd/rate';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
-
+import { NzModalModule } from 'ng-zorro-antd/modal';
 const ngZorro = [
     NzSelectModule,
     NzRateModule,
     NzPaginationModule,
     NzDropDownModule,
-    NzBadgeModule
+    NzBadgeModule,
+    NzModalModule
 ]
 
 @NgModule({
